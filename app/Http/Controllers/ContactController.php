@@ -8,38 +8,35 @@ use http\Env\Response;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Resources\Contact as contactResource;
+
 class ContactController extends Controller
 {
-
     public function index(){
+        $this->authorize('viewAny', Contact::class);
+
         return request()->user()->contacts;
     }
     public function store(){
-
+        $this->authorize('create', Contact::class);
 
         request()->user()->contacts()->create($this->validateData());
     }
     public function show($id){
 
-        try {
+        try{
             $contact = Contact::findOrFail($id);
         }catch (ModelNotFoundException $e) {
             throw new ContactNotFoundException();
         }
-
-        if(request()->user()->isNot($contact->user)){
-
-            return response([], 403);
-        }
+        $this->authorize('view', $contact);
 
         return new contactResource($contact);
 
     }
     public function update(Contact $contact){
 
-        if(request()->user()->isNot($contact->user)){
-            return response([], 403);
-        }
+        $this->authorize('update', $contact);
+
         $contact->update($this->validateData());
 
         return new contactResource($contact);
@@ -47,13 +44,13 @@ class ContactController extends Controller
     }
     public function destroy(Contact $contact){
 
-        if(request()->user()->isNot($contact->user)){
-            return response([], 403);
-        }
+        $this->authorize('delete', $contact);
 
         $contact->delete();
         return response()->json([], 204);
     }
+
+
     private function validateData(){
         return $data = request()->validate([
             'name'      => 'required',

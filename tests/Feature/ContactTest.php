@@ -117,7 +117,6 @@ class ContactTest extends TestCase
     }
     /** @test */
     public function single_contact_can_be_retrieved_by_auth_user(){
-        $this->withoutExceptionHandling();
         $user = factory(User::class)->create();
         $anotherUser = factory(User::class)->create();
 
@@ -171,7 +170,7 @@ class ContactTest extends TestCase
     }
     /** @test */
     public function contact_can_be_updated_only_by_auth_user(){
-        $this->withoutExceptionHandling();
+
         $anotherUser = factory(User::class)->create();
 
         $contact = factory(Contact::class)->create(['user_id'=> $this->user->id]);
@@ -181,7 +180,7 @@ class ContactTest extends TestCase
 
     /** @test */
     public function contact_can_be_deleted(){
-        $this->withoutExceptionHandling();
+
         $contact = factory(Contact::class)->create(['user_id' => $this->user]);
         $response = $this->delete('/api/contacts/'.$contact->id, $this->data())->assertStatus(204);
         $this->assertCount(0, Contact::all());
@@ -189,7 +188,7 @@ class ContactTest extends TestCase
     }
     /** @test */
     public function contact_can_be_deleted_only_bY_auth_user(){
-        $this->withoutExceptionHandling();
+
         $anotherUser = factory(User::class)->create();
 
         $contact = factory(Contact::class)->create(['user_id' => $this->user]);

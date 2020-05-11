@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f7f9c940-d131-4a5d-9d38-1c6592c95d35" name="Default Changelist" comment="" />
+    <list default="true" id="f7f9c940-d131-4a5d-9d38-1c6592c95d35" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ContactTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ContactTest.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +161,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589108099759</updated>
       <workItem from="1589108102509" duration="20792000" />
-      <workItem from="1589195688372" duration="9467000" />
+      <workItem from="1589195688372" duration="12124000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1589113556217</created>
@@ -187,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589147064642</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="init commit&#10;CRUD operations with tests for contacts">
+      <created>1589207263870</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1589207263870</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +211,8 @@
     <MESSAGE value="contacts can be added&#10;fields are required" />
     <MESSAGE value="email and birthday must be valid" />
     <MESSAGE value="CRUD operation for contacts with tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD operation for contacts with tests" />
+    <MESSAGE value="init commit&#10;CRUD operations with tests for contacts" />
+    <option name="LAST_COMMIT_MESSAGE" value="init commit&#10;CRUD operations with tests for contacts" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589108358996">
@@ -215,10 +227,10 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589141172925" />
-    <state x="785" y="56" width="1025" height="887" key="CommitChangelistDialog2" timestamp="1589147064507">
+    <state x="785" y="56" width="1025" height="887" key="CommitChangelistDialog2" timestamp="1589207263176">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
-    <state x="785" y="56" width="1025" height="887" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589147064507" />
+    <state x="785" y="56" width="1025" height="887" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589207263176" />
     <state x="1074" y="243" width="447" height="513" key="FileChooserDialogImpl" timestamp="1589207062599">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
