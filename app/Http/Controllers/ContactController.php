@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\Contact as contactResource;
 use App\Http\Resources\ContactCollection as ContactCollection;
 
+
 class ContactController extends Controller
 {
     public function index(){
@@ -21,7 +22,8 @@ class ContactController extends Controller
     public function store(){
         $this->authorize('create', Contact::class);
 
-        request()->user()->contacts()->create($this->validateData());
+        $contact = request()->user()->contacts()->create($this->validateData());
+        return (new contactResource($contact))->response()->setStatusCode(201);
     }
     public function show($id){
 
@@ -41,7 +43,7 @@ class ContactController extends Controller
 
         $contact->update($this->validateData());
 
-        return new contactResource($contact);
+        return (new contactResource($contact))->response()->setStatusCode(200);
 
     }
     public function destroy(Contact $contact){

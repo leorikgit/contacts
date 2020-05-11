@@ -34,7 +34,7 @@ class ContactTest extends TestCase
     public function contact_can_be_added(){
         $this->withoutExceptionHandling();
 
-        $this->post('/api/contacts', $this->data());
+        $response = $this->post('/api/contacts', $this->data())->assertStatus(201);
 
         $contacts = Contact::first();
 
@@ -42,6 +42,23 @@ class ContactTest extends TestCase
         $this->assertEquals('test@gmail.com', $contacts->email);
         $this->assertEquals('06/01/1989', $contacts->birthday->format('m/d/Y'));
         $this->assertEquals('test', $contacts->company);
+
+        $response->assertJson([
+            'data' => [
+                'type' => 'contacts',
+                'contact_id' => $contacts->id,
+                'attributes' => [
+                    'name' => $contacts->name,
+                    'email' => $contacts->email,
+                    'birthday' => $contacts->birthday->format('m/d/Y'),
+                    'company' => $contacts->company
+                ]
+            ],
+            'links' => [
+                'self' => $contacts->path()
+            ]
+        ]);
+
 
     }
     /** @test */
@@ -106,7 +123,7 @@ class ContactTest extends TestCase
                         ],
                     ],
                     'links' => [
-                        'self' => url('/contacts/'.$user->contacts->first()->id)
+                        'self' => $user->contacts->first()->path()
                     ]
                 ],
 
@@ -132,12 +149,12 @@ class ContactTest extends TestCase
                 'attributes' => [
                     'name' => $contact->name,
                     'email' => $contact->email,
-                    'birthday' => $contact->birthday->toJSON(),
+                    'birthday' => $contact->birthday->format('m/d/Y'),
                     'company' => $contact->company
                 ]
             ],
             'links' => [
-                'self' => url('/contacts/'.$contact->id)
+                'self' => $contact->path()
             ]
         ]);
     }
@@ -185,12 +202,12 @@ class ContactTest extends TestCase
                 'attributes' => [
                     'name' => $contact->name,
                     'email' => $contact->email,
-                    'birthday' => $contact->birthday->toJSON(),
+                    'birthday' => $contact->birthday->format('m/d/Y'),
                     'company' => $contact->company
                 ]
             ],
             'links' => [
-                'self' => url('/contacts/'.$contact->id)
+                'self' => $contact->path()
             ]
         ]);
     }

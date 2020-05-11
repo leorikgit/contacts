@@ -13,6 +13,9 @@ class Contact extends Model
     public function SetBirthdayAttribute($Birthday){
         $this->attributes['birthday'] = Carbon::parse($Birthday);
     }
+    public function path(){
+        return url('/contacts/'. $this->id);
+    }
     public function user(){
         return $this->belongsTo(User::class);
     }
