@@ -8,13 +8,15 @@ use http\Env\Response;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Resources\Contact as contactResource;
+use App\Http\Resources\ContactCollection as ContactCollection;
 
 class ContactController extends Controller
 {
     public function index(){
         $this->authorize('viewAny', Contact::class);
 
-        return request()->user()->contacts;
+        return new ContactCollection(request()->user()->contacts);
+
     }
     public function store(){
         $this->authorize('create', Contact::class);

@@ -21,7 +21,7 @@ class Contact extends JsonResource
                 'attributes' => [
                     'name' => $this->name,
                     'email' => $this->email,
-                    'birthday' => $this->birthday,
+                    'birthday' => $this->birthday->format('m/d/Y'),
                     'company' => $this->company
                 ]
             ],

@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7f9c940-d131-4a5d-9d38-1c6592c95d35" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/ContactCollection.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Resources/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/Contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/ContactTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ContactTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,13 +127,16 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1biHfppv37Tv0VmMRkO6KAe2Cpx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -161,7 +166,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589108099759</updated>
       <workItem from="1589108102509" duration="20792000" />
-      <workItem from="1589195688372" duration="12124000" />
+      <workItem from="1589195688372" duration="14179000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1589113556217</created>
@@ -198,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589207263870</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="contact polices">
+      <created>1589215775944</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1589215775944</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,12 +219,14 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init commit" />
     <MESSAGE value="contacts can be added&#10;fields are required" />
     <MESSAGE value="email and birthday must be valid" />
     <MESSAGE value="CRUD operation for contacts with tests" />
     <MESSAGE value="init commit&#10;CRUD operations with tests for contacts" />
-    <option name="LAST_COMMIT_MESSAGE" value="init commit&#10;CRUD operations with tests for contacts" />
+    <MESSAGE value="contact polices" />
+    <option name="LAST_COMMIT_MESSAGE" value="contact polices" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589108358996">
@@ -227,10 +241,10 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589141172925" />
-    <state x="785" y="56" width="1025" height="887" key="CommitChangelistDialog2" timestamp="1589207263176">
+    <state x="785" y="56" width="1025" height="887" key="CommitChangelistDialog2" timestamp="1589215775844">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
-    <state x="785" y="56" width="1025" height="887" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589207263176" />
+    <state x="785" y="56" width="1025" height="887" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589215775844" />
     <state x="1074" y="243" width="447" height="513" key="FileChooserDialogImpl" timestamp="1589207062599">
       <screen x="45" y="27" width="2515" height="948" />
     </state>

@@ -80,7 +80,7 @@ class ContactTest extends TestCase
     }
     /** @test */
     public function user_can_retrieve_only_his_contacts(){
-        $this->withoutExceptionHandling();
+
         $user = factory(User::class)->create();
         $anotherUser = factory(User::class)->create();
 
@@ -89,7 +89,33 @@ class ContactTest extends TestCase
 
         $response = $this->get('/api/contacts'. '?api_token='. $user->api_token)
             ->assertStatus(200);
-        $response->assertJsonCount(1);
+
+
+        $this->assertCount(1, $user->contacts);
+        $response->assertJson([
+            'data' => [
+                [
+                    'data' => [
+                        'type' => 'contacts',
+                        'contact_id' => $user->contacts->first()->id,
+                        'attributes' => [
+                            'name' =>  $user->contacts->first()->name,
+                            'email' =>  $user->contacts->first()->email,
+                            'birthday' =>  $user->contacts->first()->birthday->format('m/d/Y'),
+                            'company' =>  $user->contacts->first()->company,
+                        ],
+                    ],
+                    'links' => [
+                        'self' => url('/contacts/'.$user->contacts->first()->id)
+                    ]
+                ],
+
+            ],
+            'links' => [
+                'self' => url('/contacts')
+            ]
+        ]);
+
     }
     /** @test */
     public function single_contact_can_be_retrieved(){
