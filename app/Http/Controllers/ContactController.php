@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use App\Exceptions\ContactNotFoundException;
+use App\Exceptions\ValidationErrorException;
 use http\Env\Response;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Resources\Contact as contactResource;
 use App\Http\Resources\ContactCollection as ContactCollection;
+use Illuminate\Validation\ValidationException;
 
 
 class ContactController extends Controller
@@ -56,11 +58,17 @@ class ContactController extends Controller
 
 
     private function validateData(){
-        return $data = request()->validate([
-            'name'      => 'required',
-            'email'     => 'required|email',
-            'birthday'  => 'required',
-            'company'    => 'required',
-        ]);
+
+        try{
+             return $data = request()->validate([
+                 'name'      => 'required',
+                 'email'     => 'required|email',
+                 'birthday'  => 'required',
+                 'company'    => 'required',
+             ]);
+        }catch(ValidationException $e){
+            throw new ValidationErrorException(json_encode($e->errors()));
+        };
+
     }
 }

@@ -1,7 +1,11 @@
 module.exports = {
   purge: [],
   theme: {
-    extend: {},
+    extend: {
+        spacing:{
+            '96' : '24rem'
+        }
+    },
   },
   variants: {},
   plugins: [],
