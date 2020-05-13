@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7f9c940-d131-4a5d-9d38-1c6592c95d35" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/views/Contact/Create.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +171,8 @@
       <updated>1589108099759</updated>
       <workItem from="1589108102509" duration="20792000" />
       <workItem from="1589195688372" duration="21260000" />
-      <workItem from="1589279466751" duration="6432000" />
+      <workItem from="1589279466751" duration="10798000" />
+      <workItem from="1589359448963" duration="9804000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1589113556217</created>
@@ -234,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589273609117</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="login frontend">
+      <created>1589293473940</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1589293473940</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +263,8 @@
     <MESSAGE value="contacts resource&amp;collection" />
     <MESSAGE value="contacts responses" />
     <MESSAGE value="tailwind Css loaded" />
-    <option name="LAST_COMMIT_MESSAGE" value="tailwind Css loaded" />
+    <MESSAGE value="login frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="login frontend" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589108358996">
@@ -268,10 +279,10 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589293307645" />
-    <state x="627" y="27" width="1703" height="944" key="CommitChangelistDialog2" timestamp="1589273608829">
+    <state x="627" y="27" width="1703" height="944" key="CommitChangelistDialog2" timestamp="1589293473494">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
-    <state x="627" y="27" width="1703" height="944" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589273608829" />
+    <state x="627" y="27" width="1703" height="944" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589293473494" />
     <state x="1074" y="243" width="447" height="513" key="FileChooserDialogImpl" timestamp="1589207062599">
       <screen x="45" y="27" width="2515" height="948" />
     </state>

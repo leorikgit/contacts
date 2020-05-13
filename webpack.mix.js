@@ -11,7 +11,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.browserSync({
     proxy: {
-        target: '172.18.0.2'
+        target: '172.18.0.3'
     },
     open: false,
 

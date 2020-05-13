@@ -5,7 +5,7 @@ require('./bootstrap');
 
 const app = new Vue({
     components: {
-        App
+        App,
     },
     el: '#app',
     router
