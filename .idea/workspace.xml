@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7f9c940-d131-4a5d-9d38-1c6592c95d35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/components/AvatarCircle.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/views/Contact/Show.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/5191e8f5-adac-452f-b4b6-b2cc62ef490c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/5191e8f5-adac-452f-b4b6-b2cc62ef490c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/ContactPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/ContactPolicy.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/Contact/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Contact/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Contact/Show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/Contact/Show.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +166,7 @@
       <workItem from="1589108102509" duration="20792000" />
       <workItem from="1589195688372" duration="21260000" />
       <workItem from="1589279466751" duration="10798000" />
-      <workItem from="1589359448963" duration="31477000" />
+      <workItem from="1589359448963" duration="34197000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1589113556217</created>
@@ -261,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589442571531</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="redirect after new contact">
+      <created>1589465559095</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1589465559095</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +281,8 @@
     <MESSAGE value="login frontend" />
     <MESSAGE value="contact create" />
     <MESSAGE value="create new contact frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="create new contact frontend" />
+    <MESSAGE value="redirect after new contact" />
+    <option name="LAST_COMMIT_MESSAGE" value="redirect after new contact" />
   </component>
   <component name="WindowStateProjectService">
     <state x="897" y="161" width="800" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589108358996">
@@ -298,10 +297,10 @@
       <screen x="45" y="27" width="2515" height="948" />
     </state>
     <state x="1035" y="258" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589293307645" />
-    <state x="627" y="27" width="1703" height="944" key="CommitChangelistDialog2" timestamp="1589442571125">
+    <state x="627" y="27" width="1703" height="944" key="CommitChangelistDialog2" timestamp="1589465558529">
       <screen x="45" y="27" width="2515" height="948" />
     </state>
-    <state x="627" y="27" width="1703" height="944" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589442571125" />
+    <state x="627" y="27" width="1703" height="944" key="CommitChangelistDialog2/45.27.2515.948/2560.0.1920.975@45.27.2515.948" timestamp="1589465558529" />
     <state x="1074" y="243" width="447" height="513" key="FileChooserDialogImpl" timestamp="1589207062599">
       <screen x="45" y="27" width="2515" height="948" />
     </state>

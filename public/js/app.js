@@ -2642,6 +2642,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Show",
@@ -2651,7 +2663,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       contact: null,
-      loading: true
+      loading: true,
+      modal: false
     };
   },
   mounted: function mounted() {
@@ -2661,8 +2674,23 @@ __webpack_require__.r(__webpack_exports__);
       _this.contact = res.data;
       _this.loading = false;
     })["catch"](function (err) {
+      if (err.response.status === 404) {
+        _this.$router.push('/contacts/');
+      }
+
       _this.loading = false;
     });
+  },
+  methods: {
+    destroy: function destroy() {
+      var _this2 = this;
+
+      axios["delete"]('/api/contacts/' + this.$route.params.id).then(function (res) {
+        _this2.$router.push('/contacts/');
+      })["catch"](function (err) {
+        _this2.loading = false;
+      });
+    }
   }
 });
 
@@ -40089,7 +40117,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.loading
     ? _c("div", [_vm._v("Loading...")])
-    : _c("div", { staticClass: " p-6" }, [
+    : _c("div", { staticClass: " p-6  " }, [
         _c("div", { staticClass: "flex justify-between" }, [
           _c(
             "div",
@@ -40101,7 +40129,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "flex" },
+            { staticClass: "relative" },
             [
               _c(
                 "router-link",
@@ -40120,14 +40148,78 @@ var render = function() {
                 {
                   staticClass:
                     "text-sm font-bold px-6 py-2 text-red-600 border border-red-600 rounded",
-                  attrs: { href: "#" }
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      _vm.modal = !_vm.modal
+                    }
+                  }
                 },
                 [_vm._v("Delete")]
-              )
+              ),
+              _vm._v(" "),
+              _vm.modal
+                ? _c(
+                    "div",
+                    {
+                      staticClass:
+                        "absolute w-64 right-0 p-8 bg-blue-900 text-white mt-3 mr-8 rounded-lg z-20"
+                    },
+                    [
+                      _c("p", [
+                        _vm._v(
+                          "Are you sure that you want to delete this record?"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "flex justify-end" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "mr-2 border border-white py-2 px-2 rounded",
+                            on: {
+                              click: function($event) {
+                                _vm.modal = !_vm.modal
+                              }
+                            }
+                          },
+                          [_vm._v("Cancel")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "text-white bg-red-600 border border-red-600 px-4 py-2 rounded hover:bg-red-500",
+                            on: {
+                              click: function($event) {
+                                return _vm.destroy()
+                              }
+                            }
+                          },
+                          [_vm._v("Delete")]
+                        )
+                      ])
+                    ]
+                  )
+                : _vm._e()
             ],
             1
           )
         ]),
+        _vm._v(" "),
+        _vm.modal
+          ? _c("div", {
+              staticClass:
+                "absolute top-0 bottom-0 right-0 left-0 bg-black opacity-25 z-10",
+              on: {
+                click: function($event) {
+                  _vm.modal = !_vm.modal
+                }
+              }
+            })
+          : _vm._e(),
         _vm._v(" "),
         _c(
           "div",
@@ -40150,7 +40242,9 @@ var render = function() {
           [_vm._v("Contact")]
         ),
         _vm._v(" "),
-        _c("p", { staticClass: "text-blue-500 mt-1" }, [_vm._v(" lala")]),
+        _c("p", { staticClass: "text-blue-500 mt-1" }, [
+          _vm._v(_vm._s(_vm.contact.data.attributes.name))
+        ]),
         _vm._v(" "),
         _c(
           "p",
@@ -40158,7 +40252,9 @@ var render = function() {
           [_vm._v("Company")]
         ),
         _vm._v(" "),
-        _c("p", { staticClass: "text-blue-500 mt-1" }, [_vm._v(" lala")]),
+        _c("p", { staticClass: "text-blue-500 mt-1" }, [
+          _vm._v(_vm._s(_vm.contact.data.attributes.company))
+        ]),
         _vm._v(" "),
         _c(
           "p",
@@ -40166,7 +40262,9 @@ var render = function() {
           [_vm._v("Birthday")]
         ),
         _vm._v(" "),
-        _c("p", { staticClass: "text-blue-500 mt-1" }, [_vm._v(" lala")])
+        _c("p", { staticClass: "text-blue-500 mt-1" }, [
+          _vm._v(_vm._s(_vm.contact.data.attributes.birthday))
+        ])
       ])
 }
 var staticRenderFns = []
