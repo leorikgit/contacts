@@ -68,7 +68,8 @@ class ContactController extends Controller
              ]);
         }catch(ValidationException $e){
             throw new ValidationErrorException(json_encode($e->errors()));
-        };
+        }
+
 
     }
 }

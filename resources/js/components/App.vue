@@ -36,9 +36,9 @@
 
             </div>
             <div class="flex flex-col flex-1 h-screen overflow-y-hidden">
-                <div class="flex h-16 justify-between p-6 border-b-2 border-gray-400 items-center shadow-md">
+                <div class="flex h-16 justify-between p-6 border-b-2 border-gray-400 items-center shadow-sm">
                     <div class="">Latest Contacts</div>
-                    <div class="rounded-full w-10 h-10 bg-blue-500 text-white flex items-center justify-center border-1 border-gray-400 text-sm text-bold">MW</div>
+                    <AvatarCircle :name="user.name"/>
                 </div>
                 <div class="flex flex-col overflow-y-hidden">
                     <router-view class="overflow-x-hidden"></router-view>
@@ -51,18 +51,26 @@
 </template>
 
 <script>
+    import AvatarCircle from "./AvatarCircle";
     export default {
         name: "App",
+        components:{
+            AvatarCircle
+        },
         props:[
             'user'
         ],
-        mounted() {
+        created() {
             window.axios.interceptors.request.use(
                 (config) => {
-                    config.data = {
-                        ...config.data,
-                        api_token: this.user.api_token
-                    };
+                        if(config.method === 'get'){
+                            config.url = config.url + '?api_token='+ this.user.api_token
+                        }else{
+                            config.data = {
+                                ...config.data,
+                                api_token: this.user.api_token
+                            };
+                        }
                     return config
                 }
             )

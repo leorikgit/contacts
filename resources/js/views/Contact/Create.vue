@@ -4,7 +4,7 @@
             <ContactInputField  label="Contact name" placeholder="Contact name" name="name" :errors="errors" @update:field="form.name = $event"/>
             <ContactInputField  label="Email" placeholder="your@email.com" name="email" :errors="errors" @update:field="form.email = $event"/>
             <ContactInputField  label="MM/DD/YYYY" placeholder="birthday" name="birthday" :errors="errors" @update:field="form.birthday = $event"/>
-            <ContactInputField  label="Company" placeholder="Company" name="company" :errors="errors" @update:field="form.comapny = $event"/>
+            <ContactInputField  label="Company" placeholder="Company" name="company" :errors="errors" @update:field="form.company = $event"/>
             <div class="flex justify-end">
                 <button class="px-4 py-2 text-red-700 border-2 hover:border-red-700">Cancel</button>
                 <button class="ml-3 px-4 py-2 bg-blue-500 rounded-lg text-white hover:bg-blue-400">Create new contact</button>
@@ -38,7 +38,7 @@
 
                     axios.post('/api/contacts', this.form)
                     .then(res => {
-                        alert('success');
+                        this.$router.push(res.data.links.self)
                     }).catch(err =>{
                         this.errors = err.response.data.errors
                     })
