@@ -14,7 +14,7 @@
     export default {
         name: "ContactInputField",
         props:[
-            'name', 'label', 'placeholder', 'errors'
+            'name', 'label', 'placeholder', 'errors', 'myprop',
         ],
         data: function () {
             return {
@@ -47,6 +47,12 @@
             hasError:function () {
                 return this.errors && this.errors.meta[this.name] && this.errors.meta[this.name].length > 0
             }
+        },
+        watch: {
+            myprop: function(newVal) { // watch it
+                this.value = newVal;
+            }
+
         }
     }
 </script>

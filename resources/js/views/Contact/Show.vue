@@ -2,11 +2,11 @@
     <div v-if="loading">Loading...</div>
     <div v-else class=" p-6  ">
         <div class="flex justify-between">
-            <div class="text-blue-600 text-sm text-bold hover:text-blue-400">
+            <button class="text-blue-600 text-sm text-bold hover:text-blue-400" @click="$router.back()">
                 < Back
-            </div>
+            </button>
             <div class="relative">
-                <router-link :to="'contacts/'+ this.contact.data.contact_id + '/edit' " class="text-sm font-bold px-4 py-2 text-green-600 border border-green-600 mr-4 rounded">Edit</router-link>
+                <router-link :to="'/contacts/'+ this.contact.data.contact_id + '/edit' " class="text-sm font-bold px-4 py-2 text-green-600 border border-green-600 mr-4 rounded">Edit</router-link>
                 <a href="#" class="text-sm font-bold px-6 py-2 text-red-600 border border-red-600 rounded"
                 @click="modal = ! modal"
                 >Delete</a>
