@@ -1,6 +1,6 @@
 <template>
     <div>
-       <ContactList url="/api/contacts"/>
+        <ContactList url="/api/birthdays"/>
     </div>
 </template>
 
