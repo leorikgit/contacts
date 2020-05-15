@@ -20,4 +20,7 @@ class Contact extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function scopeBirthdays($query){
+        return $query->where('birthday', 'like', '%-'.now()->format('m').'-%');
+    }
 }

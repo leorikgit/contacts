@@ -185,6 +185,7 @@ class ContactTest extends TestCase
     /** @test */
     public function contact_can_be_updated(){
 
+
         $contact = factory(Contact::class)->create(['user_id' => $this->user->id]);
 
         $response = $this->patch('/api/contacts/'.$contact->id, $this->data())->assertStatus(200);
