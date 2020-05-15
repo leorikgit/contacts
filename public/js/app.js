@@ -2623,6 +2623,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _AvatarCircle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AvatarCircle */ "./resources/js/components/AvatarCircle.vue");
 //
 //
 //
@@ -2634,21 +2637,51 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Search",
+  components: {
+    AvatarCircle: _AvatarCircle__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
-      value: ''
+      value: '',
+      modal: false,
+      contacts: []
     };
   },
   methods: {
-    Search: function Search() {
+    Search: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.debounce(function () {
+      var _this = this;
+
+      if (this.value.length <= 2) {
+        return;
+      }
+
       axios.post('/api/search', {
         'searchTerm': this.value
       }).then(function (res) {
-        console.log(res.data);
+        _this.contacts = res.data.data;
       })["catch"](function (err) {});
-    }
+    }, 300)
   }
 });
 
@@ -40294,51 +40327,138 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "relative" }, [
-    _c("div", { staticClass: "absolute" }, [
-      _c(
-        "svg",
-        { staticClass: "w-5 h-5 mt-3 ml-2", attrs: { viewBox: "0 0 24 24" } },
-        [
-          _c("path", {
-            attrs: {
-              "fill-rule": "evenodd",
-              d:
-                "M20.2 18.1l-1.4 1.3-5.5-5.2 1.4-1.3 5.5 5.2zM7.5 12c-2.7 0-4.9-2.1-4.9-4.6s2.2-4.6 4.9-4.6 4.9 2.1 4.9 4.6S10.2 12 7.5 12zM7.5.8C3.7.8.7 3.7.7 7.3s3.1 6.5 6.8 6.5c3.8 0 6.8-2.9 6.8-6.5S11.3.8 7.5.8z",
-              "clip-rule": "evenodd"
+  return _c("div", {}, [
+    _c("div", { staticClass: "relative" }, [
+      _c("div", { staticClass: "absolute" }, [
+        _c(
+          "svg",
+          { staticClass: "w-5 h-5 mt-3 ml-2", attrs: { viewBox: "0 0 24 24" } },
+          [
+            _c("path", {
+              attrs: {
+                "fill-rule": "evenodd",
+                d:
+                  "M20.2 18.1l-1.4 1.3-5.5-5.2 1.4-1.3 5.5 5.2zM7.5 12c-2.7 0-4.9-2.1-4.9-4.6s2.2-4.6 4.9-4.6 4.9 2.1 4.9 4.6S10.2 12 7.5 12zM7.5.8C3.7.8.7 3.7.7 7.3s3.1 6.5 6.8 6.5c3.8 0 6.8-2.9 6.8-6.5S11.3.8 7.5.8z",
+                "clip-rule": "evenodd"
+              }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.value,
+            expression: "value"
+          }
+        ],
+        staticClass:
+          "w-64 pl-8 mr-2 py-2 rounded-full focus:outline-none bg-gray-200 border border-gray-400 focus:border-blue-500 focus:shadow focus:bg-gray-100",
+        attrs: { placeholder: "search..." },
+        domProps: { value: _vm.value },
+        on: {
+          input: [
+            function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.value = $event.target.value
+            },
+            function($event) {
+              return _vm.Search()
             }
-          })
-        ]
-      )
+          ],
+          click: function($event) {
+            _vm.modal = !_vm.modal
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm.modal
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "absolute w-96 bg-blue-900 p-4 mt-2 rounded-lg text-white right-0 z-20"
+            },
+            [
+              _vm.contacts.length === 0
+                ? _c("div", [
+                    _vm._v("No result for '" + _vm._s(_vm.value) + "'")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._l(_vm.contacts, function(contact) {
+                return _c(
+                  "div",
+                  {
+                    on: {
+                      click: function($event) {
+                        _vm.modal = false
+                        _vm.value = ""
+                        _vm.contacts = []
+                      }
+                    }
+                  },
+                  [
+                    _c(
+                      "router-link",
+                      { attrs: { to: "/contacts/" + contact.data.contact_id } },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "flex items-center" },
+                          [
+                            _c("AvatarCircle", {
+                              attrs: { name: contact.data.attributes.name }
+                            }),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "ml-2" }, [
+                              _c(
+                                "div",
+                                { staticClass: "text-white font-bold" },
+                                [_vm._v(_vm._s(contact.data.attributes.name))]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "text-white font-bold" },
+                                [
+                                  _vm._v(
+                                    _vm._s(contact.data.attributes.company)
+                                  )
+                                ]
+                              )
+                            ])
+                          ],
+                          1
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              })
+            ],
+            2
+          )
+        : _vm._e()
     ]),
     _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.value,
-          expression: "value"
-        }
-      ],
-      staticClass:
-        "w-64 pl-8 mr-2 py-2 rounded-full focus:outline-none bg-gray-200 border border-gray-400 focus:border-blue-500 focus:shadow focus:bg-gray-100",
-      attrs: { placeholder: "search..." },
-      domProps: { value: _vm.value },
-      on: {
-        input: [
-          function($event) {
-            if ($event.target.composing) {
-              return
+    _vm.modal
+      ? _c("div", {
+          staticClass:
+            "absolute z-10 black opacity-0 top-0 bottom-0 right-0 left-0",
+          on: {
+            click: function($event) {
+              _vm.modal = false
             }
-            _vm.value = $event.target.value
-          },
-          function($event) {
-            return _vm.Search()
           }
-        ]
-      }
-    })
+        })
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
