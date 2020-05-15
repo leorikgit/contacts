@@ -1982,9 +1982,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     Search: _Search__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: ['user'],
+  data: function data() {
+    return {
+      title: ''
+    };
+  },
+  watch: {
+    title: function title() {
+      document.title = this.title + ' | Contacts';
+    },
+    $route: function $route(to, from) {
+      this.title = to.meta.title;
+    }
+  },
   created: function created() {
     var _this = this;
 
+    this.title = this.$route.meta.title;
     window.axios.interceptors.request.use(function (config) {
       if (config.method === 'get') {
         config.url = config.url + '?api_token=' + _this.user.api_token;
@@ -56593,27 +56607,45 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
   routes: [{
     path: '/',
     name: 'home',
-    component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
+    meta: {
+      'title': 'home'
+    }
   }, {
     path: '/contacts/',
     name: 'contact.index',
-    component: _views_Contact_Index__WEBPACK_IMPORTED_MODULE_6__["default"]
+    component: _views_Contact_Index__WEBPACK_IMPORTED_MODULE_6__["default"],
+    meta: {
+      'title': 'contacts'
+    }
   }, {
     path: '/contacts/create',
     name: 'contact.create',
-    component: _views_Contact_Create__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: _views_Contact_Create__WEBPACK_IMPORTED_MODULE_3__["default"],
+    meta: {
+      'title': 'create'
+    }
   }, {
     path: '/contacts/:id',
     name: 'contact.show',
-    component: _views_Contact_Show__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _views_Contact_Show__WEBPACK_IMPORTED_MODULE_4__["default"],
+    meta: {
+      'title': 'show'
+    }
   }, {
     path: '/contacts/:id/edit',
     name: 'contact.edit',
-    component: _views_Contact_Edit__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _views_Contact_Edit__WEBPACK_IMPORTED_MODULE_5__["default"],
+    meta: {
+      'title': 'edit'
+    }
   }, {
     path: '/birthdays/',
     name: 'birthday.index',
-    component: _views_Birthday_index__WEBPACK_IMPORTED_MODULE_7__["default"]
+    component: _views_Birthday_index__WEBPACK_IMPORTED_MODULE_7__["default"],
+    meta: {
+      'title': 'birthdays'
+    }
   }],
   mode: 'history'
 }));

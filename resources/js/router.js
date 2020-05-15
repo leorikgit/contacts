@@ -10,12 +10,12 @@ Vue.use(VueRouter);
 
 export default new VueRouter({
   routes: [
-      {path: '/' , name: 'home', component: ExampleComponent},
-      {path: '/contacts/' , name: 'contact.index',  component: IndexContact},
-      {path: '/contacts/create' , name: 'contact.create',  component: ContactCreate},
-      {path: '/contacts/:id' , name: 'contact.show',  component: ContactShow},
-      {path: '/contacts/:id/edit' , name: 'contact.edit',  component: EditContact},
-      {path: '/birthdays/' , name: 'birthday.index',  component: BirthdayIndex}
+      {path: '/' , name: 'home', component: ExampleComponent,  meta: {'title': 'home'}},
+      {path: '/contacts/' , name: 'contact.index',  component: IndexContact, meta: {'title': 'contacts'}},
+      {path: '/contacts/create' , name: 'contact.create',  component: ContactCreate, meta: {'title': 'create'}},
+      {path: '/contacts/:id' , name: 'contact.show',  component: ContactShow ,meta: {'title': 'show'}},
+      {path: '/contacts/:id/edit' , name: 'contact.edit',  component: EditContact,meta: {'title': 'edit'}},
+      {path: '/birthdays/' , name: 'birthday.index',  component: BirthdayIndex, meta: {'title': 'birthdays'}}
   ],
     mode: 'history'
 });

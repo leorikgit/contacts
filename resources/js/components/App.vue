@@ -67,7 +67,21 @@
         props:[
             'user'
         ],
+        data: function() {
+          return {
+              title: ''
+          }
+        },
+        watch:{
+          title()  {
+              document.title = this.title + ' | Contacts'
+          },
+            $route(to, from){
+              this.title = to.meta.title
+            }
+        },
         created() {
+            this.title = this.$route.meta.title
             window.axios.interceptors.request.use(
                 (config) => {
                         if(config.method === 'get'){
