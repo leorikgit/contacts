@@ -6,6 +6,7 @@ import ContactShow from './views/Contact/Show';
 import EditContact from './views/Contact/Edit';
 import IndexContact from './views/Contact/Index';
 import BirthdayIndex from './views/Birthday/index';
+import Logout from './actions/logout';
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -15,7 +16,8 @@ export default new VueRouter({
       {path: '/contacts/create' , name: 'contact.create',  component: ContactCreate, meta: {'title': 'create'}},
       {path: '/contacts/:id' , name: 'contact.show',  component: ContactShow ,meta: {'title': 'show'}},
       {path: '/contacts/:id/edit' , name: 'contact.edit',  component: EditContact,meta: {'title': 'edit'}},
-      {path: '/birthdays/' , name: 'birthday.index',  component: BirthdayIndex, meta: {'title': 'birthdays'}}
+      {path: '/birthdays/' , name: 'birthday.index',  component: BirthdayIndex, meta: {'title': 'birthdays'}},
+      {path: '/logout' , name: 'logout',  component: Logout}
   ],
     mode: 'history'
 });
