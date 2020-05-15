@@ -22,7 +22,7 @@ class SearchTest extends TestCase
         factory(Contact::class)->create(['user_id' => $user->id]);
         factory(Contact::class)->create(['user_id' => $secondUser->id]);
 
-        $response = $this->get('/api/search?&api_token='.$user->api_token. '&searchTerm=vidavi')
+        $response = $this->post('/api/search', ['api_token' => $user->api_token, 'searchTerm' => 'vidavi'])
 
             ->assertStatus(200);
 

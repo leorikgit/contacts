@@ -38,7 +38,12 @@
             <div class="flex flex-col flex-1 h-screen overflow-y-hidden">
                 <div class="flex h-16 justify-between p-6 border-b-2 border-gray-400 items-center shadow-sm">
                     <div class="">Latest Contacts</div>
-                    <AvatarCircle :name="user.name"/>
+                   <div class="flex items-center">
+
+                           <Search/>
+
+                       <AvatarCircle :name="user.name"/>
+                   </div>
                 </div>
                 <div class="flex flex-col overflow-y-hidden">
                     <router-view class="overflow-x-hidden"></router-view>
@@ -52,10 +57,12 @@
 
 <script>
     import AvatarCircle from "./AvatarCircle";
+    import Search from "./Search";
     export default {
         name: "App",
         components:{
-            AvatarCircle
+            AvatarCircle,
+            Search
         },
         props:[
             'user'
